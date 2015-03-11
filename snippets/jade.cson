@@ -1,0 +1,7 @@
+'.source.jade':
+	'Link':
+		'prefix': 'css'
+		'body': 'link(rel="stylesheet" type="text/css" href="$1")$2'
+	'Script':
+		'prefix': 'script'
+		'body': 'script(type="text/javascript" src="$1")$2'

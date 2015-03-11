@@ -1,0 +1,80 @@
+'.source.jade':
+	'checkbox':
+		'prefix': 'check'
+		'body': '''
+			.checkbox
+				label
+					input(type="checkbox", ng-model="$1"$2)$3
+					$4
+			'''
+	'inline checkbox':
+		'prefix': 'checki'
+		'body': '''
+			.checkbox
+				label.checkbox-inline
+					input(type="checkbox", ng-model="$1"$2)$3
+					$4
+			'''
+
+	'radio':
+		'prefix': 'radio'
+		'body': '''
+			.radio
+				label
+					input(type="radio", ng-model="$1"$2)$3
+					$4
+			'''
+	'inline radio':
+		'prefix': 'radioi'
+		'body': '''
+			.radio
+				label.radio-inline
+					input(type="radio", ng-model="$1"$2)$3
+					$4
+			'''
+
+	'select':
+		'prefix': 'select'
+		'body': '''
+			select.form-control(
+				ng-model="$1"
+				ng-options="$1 as $2 for $3 in $4"
+				ng-change="$6"
+			)
+				option $7
+			'''
+
+	'form select':
+		'prefix': 'fselect'
+		'body': '''
+			div.form-group
+				label ${2:Text}
+				select.form-control(
+					ng-model="$3"
+					ng-options="$4 as $5 for $6 in $7"
+					ng-change="$8"
+				)
+				option $9
+			'''
+
+	'form text input':
+		'prefix': 'ftext'
+		'body': '''
+			div.form-group
+				label ${2:Text}
+				input.form-control(
+					type='text'
+					ng-model="$3"
+					ng-change="$4"
+				)
+				$5
+			'''
+
+	'button':
+		'prefix': 'btn'
+		'body': '''
+			button.btn.btn-$1(
+				ng-click="$2"
+				ng-value="$3"
+			)
+			'''

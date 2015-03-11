@@ -1,0 +1,90 @@
+'.source.jade':
+	'row':
+		'prefix': 'row'
+		'body': '''
+			.row
+				$1
+			'''
+
+	'col-md-1':
+		'prefix': 'md1'
+		'body': '.col-md-1$1'
+	'col-md-2':
+		'prefix': 'md2'
+		'body': '.col-md-2$1'
+	'col-md-3':
+		'prefix': 'md3'
+		'body': '.col-md-3$1'
+	'col-md-4':
+		'prefix': 'md4'
+		'body': '.col-md-4$1'
+	'col-md-5':
+		'prefix': 'md5'
+		'body': '.col-md-5$1'
+	'col-md-6':
+		'prefix': 'md6'
+		'body': '.col-md-6$1'
+	'col-md-7':
+		'prefix': 'md7'
+		'body': '.col-md-7$1'
+	'col-md-8':
+		'prefix': 'md8'
+		'body': '.col-md-8$1'
+	'col-md-9':
+		'prefix': 'md9'
+		'body': '.col-md-9$1'
+	'col-md-10':
+		'prefix': 'md10'
+		'body': '.col-md-10$1'
+	'col-md-11':
+		'prefix': 'md11'
+		'body': '.col-md-11$1'
+	'col-md-12':
+		'prefix': 'md12'
+		'body': '.col-md-12$1'
+
+	'table':
+		'prefix': 'table'
+		'body': '''
+			table.table.table-hover
+				$1
+			'''
+
+	'bordered table':
+		'prefix': 'tableb'
+		'body': '''
+			table.table.table-bordered.table-hover
+				$1
+			'''
+
+	'form group':
+		'prefix': 'formg'
+		'body': '''
+			div.form-group
+				label ${2:Text}
+				input.form-control(type='$3'$4)$5
+			'''
+
+	'inline form':
+		'prefix': 'formi'
+		'body': '''
+			form.form-inline
+				$1
+			'''
+
+	'horizontal form':
+		'prefix': 'formh'
+		'body': '''
+			form.form-horizontal
+				$1
+			'''
+
+	'input group':
+		'prefix': 'inpg'
+		'body': '''
+			.input-group
+				$1
+			'''
+	'input group addon':
+		'prefix': 'inpga'
+		'body': '.input-group-addon $1'

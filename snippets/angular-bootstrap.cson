@@ -1,0 +1,41 @@
+'.source.jade':
+	'carousel':
+		'prefix': 'carousel'
+		'body': '''
+			div(style="height: 305px")
+				carousel(interval="5000")
+					slide(
+						ng-repeat="slide in slides"
+						active="slide.active"
+					)
+						img(ng-src="{{slide.image}}",style="margin:auto;")
+						div.carousel-caption: p {{slide.text}}
+			'''
+
+	'pagination':
+		'prefix': 'pagination'
+		'body': '''
+			nav
+				ul.pagination
+					li
+						a(href="#",aria-label="Previous")
+							span(aria-hidden="true") &laquo;
+					li: a(href="#") 1
+					li: a(href="#") 2
+					li: a(href="#") 3
+					li: a(href="#") 4
+					li: a(href="#") 5
+					li
+						a(href="#",aria-label="Next")
+							span(aria-hidden="true") &raquo;
+		'''
+
+	'panel':
+		'prefix': 'panel'
+		'body': '''
+			div.panel
+				div.panel-heading
+					h3.panel-title $1
+				div.panel-body
+					$2
+		'''

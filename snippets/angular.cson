@@ -1,0 +1,38 @@
+'.source.coffee':
+    'Angular Controller':
+        'prefix': 'ngct'
+        'body': """
+            $1Controller = ($scope$2) ->
+                ${3:Body}
+
+            $1Controller.$inject = [ '$scope'$2 ]
+        """
+    'Function':
+        'prefix': 'fn'
+        'body': '($1) -> $2'
+
+    'Module Config':
+        'prefix': 'ngmod'
+        'body': """
+            angular.module '${1:Module Name}', [ 'ngRoute'${2:Dependencies}]
+            app.config ['$routeProvider', ($routeProvider)->
+
+            	$routeProvider.when '/',
+            		controller : '${3:Main}Controller'
+            		templateUrl : 'html/${3:Main}.html'
+
+                .when '/${4:Path}',
+            		controller : '${4:Path}Controller'
+            		templateUrl : 'html/${4:Path}.html'$5
+                .otherwise
+            		redirectTo : '/'
+            ]
+
+        """
+    'Angular Router when':
+        'prefix': 'ngwhen'
+        'body': """
+            .when '/${1:Path}',
+                controller : '$1Controller'
+                templateUrl : '/html/$1.html'$2
+        """
