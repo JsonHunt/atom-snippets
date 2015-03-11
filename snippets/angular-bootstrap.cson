@@ -39,3 +39,25 @@
 				div.panel-body
 					$2
 		'''
+
+	'datepicker':
+		'prefix': 'datepicker'
+		'body': '''
+			p.input-group
+				input (
+					type="text"
+					class="form-control"
+					datepicker-popup="dd-MMMM-yyyy"
+					ng-model="$1"
+					is-open="$2"
+					min-date="$3"
+					max-date="$4"
+					datepicker-options="{ formatYear: 'yy', startingDay: 1 }"
+					date-disabled="disabled(date, mode)"
+					ng-required="$5"
+					close-text="Close"
+				)
+					span.input-group-btn
+						button.btn.btn-default(type="button",ng-click="open($event)")
+							i.glyphicon.glyphicon-calendar
+		'''
