@@ -5,3 +5,48 @@
 	'Script':
 		'prefix': 'script'
 		'body': 'script(type="text/javascript" src="$1")$2'
+
+	'Angular ng-click':
+		'prefix': 'click'
+		'body': 'ng-click="$1"$2'
+
+	'Angular ng-repeat':
+		'prefix': 'rep'
+		'body': 'ng-repeat="$1 in $2 track by $3"$4'
+
+	'Angular ng-model':
+		'prefix': 'model'
+		'body': 'ng-model="$1"$2'
+
+	'Angular ng-class':
+		'prefix': 'class'
+		'body': 'ng-class="{$1}"$2'
+
+	'Angular ng-if':
+		'prefix': 'if'
+		'body': 'ng-if="$1"$2'
+
+	'Angular ng-show':
+		'prefix': 'show'
+		'body': 'ng-show="$1"$2'
+
+	'Angular ng-hide':
+		'prefix': 'hide'
+		'body': 'ng-hide="$1"$2'
+
+	'html':
+		'prefix':'html'
+		'body': """
+			doctype html
+			html
+				head
+					title $1
+					meta(charset="utf-8")
+					meta(name="description",content="$2")
+					meta(name="keywords",content="$3")
+					meta(name="author",content="Integral Systems Inc.")
+					link(rel="apple-touch-icon" href="/apple-touch-icon.png")
+					link(rel="icon" href="/favicon.ico")
+				body
+					$4
+		"""

@@ -1,38 +1,74 @@
 '.source.coffee':
-    'Angular Controller':
-        'prefix': 'ngct'
-        'body': """
-            $1Controller = ($scope$2) ->
-                ${3:Body}
+		'Function':
+				'prefix': 'fn'
+				'body': '($1) -> $2'
 
-            $1Controller.$inject = [ '$scope'$2 ]
-        """
-    'Function':
-        'prefix': 'fn'
-        'body': '($1) -> $2'
+		'Module Config':
+				'prefix': 'ngmod'
+				'body': """
+						angular.module '${1:Module Name}', [ 'ngRoute'${2:Dependencies}]
+						app.config ['$routeProvider', ($routeProvider)->
 
-    'Module Config':
-        'prefix': 'ngmod'
-        'body': """
-            angular.module '${1:Module Name}', [ 'ngRoute'${2:Dependencies}]
-            app.config ['$routeProvider', ($routeProvider)->
+							$routeProvider.when '/',
+								controller : '${3:Main}Controller'
+								templateUrl : 'html/${3:Main}.html'
 
-            	$routeProvider.when '/',
-            		controller : '${3:Main}Controller'
-            		templateUrl : 'html/${3:Main}.html'
+								.when '/${4:Path}',
+								controller : '${4:Path}Controller'
+								templateUrl : 'html/${4:Path}.html'$5
+								.otherwise
+								redirectTo : '/'
+						]
+				"""
 
-                .when '/${4:Path}',
-            		controller : '${4:Path}Controller'
-            		templateUrl : 'html/${4:Path}.html'$5
-                .otherwise
-            		redirectTo : '/'
-            ]
+		'Angular Controller Definition':
+				'prefix': 'ctrdec'
+				'body': """
+						$1Controller = ($scope$2) ->
+								${3:Body}
 
-        """
-    'Angular Router when':
-        'prefix': 'ngwhen'
-        'body': """
-            .when '/${1:Path}',
-                controller : '$1Controller'
-                templateUrl : '/html/$1.html'$2
-        """
+						$1Controller.$inject = [ '$scope'$2 ]
+				"""
+		'Angular Controller Declaration':
+			'prefix': 'ctrdef'
+			'body': "app.controller '$1Controller', $1Controller$2"
+
+		'Angular Service Definition':
+				'prefix': 'service'
+				'body': """
+					class ${1:Service Name}
+						constructor: (${2:Dependencies})->
+						method1: ()->
+						method2: ()->
+
+				"""
+
+		'Angular Service Declaration':
+			'prefix': 'servicedef'
+			'body': "app.service '$1', [$2, $1]$3"
+
+
+		'Function':
+			'prefix': 'fn'
+			'body': '($1) -> $2'
+
+		'Angular $scope':
+			'prefix': 'sc'
+			'body': '$scope.$1'
+
+		'Angular Router when':
+				'prefix': 'ngwhen'
+				'body': """
+						.when '/${1:Path}',
+								controller : '$1Controller'
+								templateUrl : '/html/$1.html'$2
+				"""
+
+		'Angular HTTP POST':
+			'prefix':'ngpost'
+			'body': """
+				$http.post "/$1",
+					${2:Variables}
+				.success (data,status,headers,config)-> ${3:callback data}
+				.error (data,status,headers,config)-> ${4:callback data}
+			"""

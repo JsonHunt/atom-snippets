@@ -1,0 +1,31 @@
+'.source.coffee':
+	'Router':
+				'prefix': 'router'
+				'body': """
+					express = require('express')
+					router = express.Router()
+
+					router.use '/$1', (req, res, next) -> $2
+
+					module.exports = router
+				"""
+
+	'Router Use':
+		'prefix': 'routeru'
+		'body': "router.use '/$1', (req,res,next)->$2"
+
+	'Require imports for testing':
+				'prefix': 'reqtest'
+				'body': """
+						assert = require 'assert'
+						sinon = require 'sinon'
+				"""
+	'Require':
+			'prefix': 'req'
+			'body' : '$1 = require \'${2}${1}\'$3'
+	'Require underscore.js':
+			'prefix': 'req_'
+			'body' : '_ = require \'underscore\''
+	'Require bunyan.js':
+			'prefix': 'reqlog'
+			'body' : 'bunyan = require \'bunyan\''

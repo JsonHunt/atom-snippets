@@ -1,0 +1,13 @@
+'.source.coffee':
+	'Mocha Describe':
+			'prefix': 'des'
+			'body' : 'describe \'$1\', ()=>$2'
+	'Mocha It':
+			'prefix': 'it'
+			'body': 'it \'$1\', (${2:done})=>$3'
+	'Mocha BeforeEach':
+			'prefix': 'bef'
+			'body': 'beforeEach (${1:done})=>$2'
+	'Mocha AfterEach':
+			'prefix': 'aft'
+			'body': 'afterEach (${1:done})=>$2'
