@@ -6,7 +6,7 @@
 		'Module Config':
 				'prefix': 'ngmod'
 				'body': """
-						angular.module '${1:Module Name}', [ 'ngRoute'${2:Dependencies}]
+						app = angular.module '${1:Module Name}', [ 'ngRoute'${2:Dependencies}]
 						app.config ['$routeProvider', ($routeProvider)->
 
 							$routeProvider.when '/',
@@ -15,7 +15,7 @@
 
 								.when '/${4:Path}',
 								controller : '${4:Path}Controller'
-								templateUrl : 'html/${4:Path}.html'$5
+								templateUrl : '$4/${4:Path}.html'$5
 								.otherwise
 								redirectTo : '/'
 						]
@@ -24,10 +24,10 @@
 		'Angular Controller Definition':
 				'prefix': 'ctrdec'
 				'body': """
-						$1Controller = ($scope$2) ->
+						@$1Controller = ($scope$2) ->
 								${3:Body}
 
-						$1Controller.$inject = [ '$scope'$2 ]
+						@$1Controller.$inject = [ '$scope'$2 ]
 				"""
 		'Angular Controller Declaration':
 			'prefix': 'ctrdef'
@@ -61,7 +61,7 @@
 				'body': """
 						.when '/${1:Path}',
 								controller : '$1Controller'
-								templateUrl : '/html/$1.html'$2
+								templateUrl : '/$1/$1.html'$2
 				"""
 
 		'Angular HTTP POST':
