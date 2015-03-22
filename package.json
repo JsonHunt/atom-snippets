@@ -1,13 +1,12 @@
 {
-	"name": "atom-snippets",
-	"main": "./lib/atom-snippets",
-	"version": "0.1.0",
-	"description": "My atom snippets for angularjs, jade, mocha, bootstrap and coffeescript",
-	"repository": "https://github.com/JsonHunt/atom-snippets.git",
-	"license": "MIT",
-	"engines": {
-		"atom": ">=0.174.0 <2.0.0"
-	},
-	"dependencies": {
-	}
+  "name": "atom-snippets",
+  "main": "./lib/atom-snippets",
+  "version": "0.1.1",
+  "description": "My atom snippets for angularjs, jade, mocha, bootstrap and coffeescript",
+  "repository": "https://github.com/JsonHunt/atom-snippets.git",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=0.174.0 <2.0.0"
+  },
+  "dependencies": {}
 }
