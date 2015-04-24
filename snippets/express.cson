@@ -9,6 +9,9 @@
 
 					module.exports = router
 				"""
+	'Module Exports':
+		'prefix': 'modexp'
+		'body': "module.exports = "
 
 	'Router Use':
 		'prefix': 'routeru'

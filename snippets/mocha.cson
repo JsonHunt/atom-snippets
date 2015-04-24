@@ -11,3 +11,6 @@
 	'Mocha AfterEach':
 			'prefix': 'aft'
 			'body': 'afterEach (${1:done})=>$2'
+	'Mocha equal':
+		'prefix': 'eq'
+		'body': 'assert.equal $1'

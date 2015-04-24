@@ -22,16 +22,12 @@
 				"""
 
 		'Angular Controller Definition':
-				'prefix': 'ctrdec'
+				'prefix': 'contr'
 				'body': """
-						@$1Controller = ($scope$2) ->
-								${3:Body}
-
-						@$1Controller.$inject = [ '$scope'$2 ]
+						module.exports = ['$scope', ($scope) ->
+							$1
+						]
 				"""
-		'Angular Controller Declaration':
-			'prefix': 'ctrdef'
-			'body': "app.controller '$1Controller', $1Controller$2"
 
 		'Angular Service Definition':
 				'prefix': 'service'
@@ -43,10 +39,20 @@
 
 				"""
 
-		'Angular Service Declaration':
-			'prefix': 'servicedef'
-			'body': "app.service '$1', [$2, $1]$3"
+		'Angular Directive Definition':
+				'prefix': 'directive'
+				'body': """
+					module.exports = ()->
+						restrict : 'E'
+						scope:
+							# bidirectional : "="
+							# assignment : "@"
+							# method : "&"
 
+						templateUrl : '$1.html'
+						controller: ($scope, $element, $attrs, $transclude) -> $2
+						link : ($scope, element, attributes, controller) -> $3
+				"""
 
 		'Function':
 			'prefix': 'fn'
@@ -56,11 +62,15 @@
 			'prefix': 'sc'
 			'body': '$scope.$1'
 
+		'Angular watch':
+			'prefix': 'watch'
+			'body': "$scope.$watch '$1', (value)-> $2"
+
 		'Angular Router when':
 				'prefix': 'ngwhen'
 				'body': """
 						.when '/${1:Path}',
-								controller : '$1Controller'
+								controller : require './$1/$1'
 								templateUrl : '/$1/$1.html'$2
 				"""
 

@@ -34,6 +34,19 @@
 		'prefix': 'hide'
 		'body': 'ng-hide="$1"$2'
 
+	'Angular ng-include':
+		'prefix': 'inc'
+		'body': """
+			div(
+				ng-include="'$1/$1.html'"
+				ng-controller="$1"
+			)$2
+		"""
+
+	'Option':
+		'prefix': 'opt'
+		'body': "option(value='$1') $2"
+
 	'html':
 		'prefix':'html'
 		'body': """
