@@ -22,6 +22,14 @@
 		'prefix': 'class'
 		'body': 'ng-class="{$1}"$2'
 
+	'Angular ng-switch':
+		'prefix': 'switch'
+		'body': 'ng-switch="$1"$2'
+
+	'Angular ng-switch-when':
+		'prefix': 'when'
+		'body': 'ng-switch-when="$1"$2'
+
 	'Angular ng-if':
 		'prefix': 'if'
 		'body': 'ng-if="$1"$2'
@@ -63,3 +71,7 @@
 				body
 					$4
 		"""
+
+	'Input placeholder':
+		'prefix':'place'
+		'body': 'placeholder="$1"'

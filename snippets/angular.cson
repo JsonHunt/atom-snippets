@@ -66,6 +66,10 @@
 			'prefix': 'watch'
 			'body': "$scope.$watch '$1', (value)-> $2"
 
+		'Angular apply':
+			'prefix': 'apply'
+			'body': "$scope.$apply ()-> $1"
+
 		'Angular Router when':
 				'prefix': 'ngwhen'
 				'body': """
@@ -81,4 +85,26 @@
 					${2:Variables}
 				.success (data,status,headers,config)-> ${3:callback data}
 				.error (data,status,headers,config)-> ${4:callback data}
+			"""
+
+		'Angular $ocModal':
+			'prefix': 'ocmodal'
+			'body': """
+				$ocModal.open
+					id: '$1'
+					url: '$2/$2.html'
+					controller: .require './../$2/$2'
+					cls: 'my-modal'
+					onClose: $3
+					init:
+						$4
+			"""
+
+		'Angular $ngDialog':
+			'prefix': 'dialog'
+			'body': """
+				ngDialog.open
+					template: '$1/$1.html'
+					controller: require './../$1/$1'
+					className: 'ngdialog-theme-default'$4
 			"""
